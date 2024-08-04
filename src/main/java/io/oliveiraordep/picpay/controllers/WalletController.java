@@ -3,6 +3,7 @@ package io.oliveiraordep.picpay.controllers;
 import io.oliveiraordep.picpay.controllers.dtos.CreateWalletDto;
 import io.oliveiraordep.picpay.entities.Wallet;
 import io.oliveiraordep.picpay.services.WalletService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,7 +18,7 @@ public class WalletController {
 
 
     @PostMapping("/wallets")
-    public ResponseEntity<Wallet> createWallet(@RequestBody CreateWalletDto data) {
+    public ResponseEntity<Wallet> createWallet(@RequestBody @Valid CreateWalletDto data) {
         var wallet = walletService.createWallet(data);
         return ResponseEntity.ok().body(wallet);
     }
