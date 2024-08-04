@@ -1,27 +1,35 @@
 package io.oliveiraordep.picpay.entities;
 
+import io.oliveiraordep.picpay.enums.WalletTypeEnum;
 import jakarta.persistence.*;
 
-import java.util.UUID;
 
 @Entity
 @Table(name = "wallet_type")
 public class WalletType {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private String description;
+
+    @Enumerated(EnumType.STRING)
+    private WalletTypeEnum walletTypeEnum;
 
     public WalletType() {
     }
 
-    public UUID getId() {
+    public WalletType(Long id, String description) {
+        this.id = id;
+        this.description = description;
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
