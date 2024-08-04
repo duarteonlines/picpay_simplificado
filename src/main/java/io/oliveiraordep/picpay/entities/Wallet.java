@@ -40,6 +40,15 @@ public class Wallet implements Serializable {
 
     }
 
+    public Wallet(String fullName, String cpfCnpj, String email, String password, WalletType walletType) {
+        this.walletType = walletType;
+        this.fullName = fullName;
+        this.cpfCnpj = cpfCnpj;
+        this.password = password;
+        this.email = email;
+        this.walletType = walletType;
+    }
+
     public Wallet(Long id, String fullName, String cpfCnpj, String email, String password, BigDecimal balance, WalletType walletType) {
         this.id = id;
         this.fullName = fullName;

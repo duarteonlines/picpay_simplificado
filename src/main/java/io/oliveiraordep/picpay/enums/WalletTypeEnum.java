@@ -14,7 +14,7 @@ public enum WalletTypeEnum {
         this.description = description;
     }
 
-    public WalletType get() {
+    public WalletType getWalletType() {
         return new WalletType(id, description);
     }
 }
