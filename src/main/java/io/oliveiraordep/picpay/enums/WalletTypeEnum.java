@@ -17,4 +17,5 @@ public enum WalletTypeEnum {
     public WalletType getWalletType() {
         return new WalletType(id, description);
     }
+
 }

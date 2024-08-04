@@ -35,6 +35,12 @@ public class Transfer implements Serializable {
 
     }
 
+    public Transfer(Wallet sender, Wallet receiver, BigDecimal value) {
+        this.sender = sender;
+        this.receiver = receiver;
+        this.value = value;
+    }
+
     public UUID getId() {
         return id;
     }

@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 public interface AuthorizationClient {
     @GetMapping
-    ResponseEntity<AuthorizationResponse> isAuthorized();
+    AuthorizationResponse isAuthorized();
 
 }

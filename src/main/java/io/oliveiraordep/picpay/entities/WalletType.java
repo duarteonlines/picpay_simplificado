@@ -3,6 +3,8 @@ package io.oliveiraordep.picpay.entities;
 import io.oliveiraordep.picpay.enums.WalletTypeEnum;
 import jakarta.persistence.*;
 
+import java.util.Objects;
+
 
 @Entity
 @Table(name = "wallet_type")
@@ -39,5 +41,18 @@ public class WalletType {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        WalletType that = (WalletType) o;
+        return Objects.equals(id, that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
     }
 }

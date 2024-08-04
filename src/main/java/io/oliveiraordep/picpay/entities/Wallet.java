@@ -1,5 +1,6 @@
 package io.oliveiraordep.picpay.entities;
 
+import io.oliveiraordep.picpay.enums.WalletTypeEnum;
 import jakarta.persistence.*;
 
 import java.io.Serial;
@@ -117,6 +118,23 @@ public class Wallet implements Serializable {
         this.walletType = walletType;
     }
 
+
+    public boolean isTransferAllowedForWalletType(){
+        return WalletTypeEnum.USER.getWalletType().getId().equals(this.walletType.getId());
+    }
+
+    public boolean isBalanceBiggerThan(BigDecimal value) {
+        return this.balance.doubleValue() > value.doubleValue();
+    }
+
+    public void debit(BigDecimal value) {
+        this.balance = this.balance.min(value);
+    }
+
+    public void credit(BigDecimal value) {
+        this.balance = this.balance.add(value);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -129,4 +147,6 @@ public class Wallet implements Serializable {
     public int hashCode() {
         return Objects.hashCode(id);
     }
+
+
 }
