@@ -81,5 +81,13 @@ mvn clean install
 ```
 
 ```bash
+cd docker
+```
+
+```bash
+docker compose up
+```
+
+```bash
 mvn spring-boot:run
 ```
